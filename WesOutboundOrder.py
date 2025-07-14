@@ -16,17 +16,6 @@ queryOutbound_url =  url + 'imhs-api/samsung/createOrderOutbound'
 headers = {'Content-Type': 'application/json', 'accept': 'application/json'}
 
 
-def getStockInformation():
-    
-    empty_set = []
-    payload = {"queryMode": "TOTAL"}
-    response = requests.post(queryStock_url,data=json.dumps(payload),headers=headers)
-    result = response.json()
-    skuCodes = result.get('data')
-    for sku in skuCodes:
-        skuCode = sku.get('skuCode')
-        empty_set.append(skuCode)
-    return empty_set
 
 def getRandomWesOrders(NumOrder, getSku):
 
